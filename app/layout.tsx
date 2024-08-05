@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
+import React from 'react'
 
 import { Poppins as FontSans } from 'next/font/google'
 import { cn } from '@/lib/utils'
