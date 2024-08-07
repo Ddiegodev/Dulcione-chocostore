@@ -1,4 +1,4 @@
-import { CartItem } from '@/types'
+import { CartItem, ShippingAddress } from '@/types'
 import {
   boolean,
   integer,
@@ -17,11 +17,12 @@ import { AdapterAccountType } from 'next-auth/adapters'
 export const users = pgTable('user', {
   id: uuid('id').defaultRandom().primaryKey().notNull(),
   name: text('name'),
-  email: text('email').unique(),
+  email: text('email').notNull(),
   role: text('role').notNull().default('user'),
   password: text('password'),
   emailVerified: timestamp('emailVerified', { mode: 'date' }),
   image: text('image'),
+  address: json('address').$type<ShippingAddress>(),
 })
 
 export const accounts = pgTable(
